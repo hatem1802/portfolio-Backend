@@ -13,6 +13,12 @@ const contactRouter = require('./routes/contacts');
 const mongoose = require('mongoose');
 
 const app = express();
+// cors permissions
+app.use(cors({
+    origin: 'http://localhost:8080', // أو '*' لو عايز تسمح لكل المواقع
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    credentials: true
+}));
 
 dotenv.config();
 
@@ -23,10 +29,6 @@ mongoose.connect(process.env.MONGO_URL)
 app.use(logger('dev'));
 app.use(express.json());
 
-// cors permissions
-app.use(cors({
-    origin: 'http://localhost:8080'
-}));
 // Routes
 app.use('/api/skills', skillsRouter);
 app.use('/api/categs', categsRouter);
