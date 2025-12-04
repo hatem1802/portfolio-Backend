@@ -17,8 +17,8 @@ const app = express();
 dotenv.config();
 
 const mongoURL = process.env.mongoURL
-mongoose.connect(mongoURL)
-    .then(console.log("Connected to database compass"))
+mongoose.connect("mongodb+srv://a01033905996:B4eo5omBOEAhMAwo@cluster0.gf1rj55.mongodb.net/Portfolio")
+    .then(console.log("Connected to database"))
     .catch((err)=> {err.message});
 
 app.use(logger('dev'));
