@@ -24,7 +24,9 @@ app.use(logger('dev'));
 app.use(express.json());
 
 // cors permissions
-app.use(cors());
+app.use(cors({
+    origin: 'http://localhost:8080'
+}));
 // Routes
 app.use('/api/skills', skillsRouter);
 app.use('/api/categs', categsRouter);
