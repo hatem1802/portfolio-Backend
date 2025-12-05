@@ -15,7 +15,7 @@ const mongoose = require('mongoose');
 const app = express();
 // cors permissions
 app.use(cors({
-    origin: 'https://hatem-aboulenin.vercel.app/', // أو '*' لو عايز تسمح لكل المواقع
+    origin: '*', // أو '*' لو عايز تسمح لكل المواقع
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     credentials: true
 }));
