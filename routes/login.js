@@ -6,9 +6,7 @@ const Pass = require('../models/PassModel');
 router.post('/', async (req, res, next) => {
     try {
         // get password from db
-        const passDB = await Pass.findOne({
-            _id: "68fccdd52372945fed719b4b"
-        })
+        const passDB = (await Pass.find())[0];
         // compare the inputed password with the db password
         const checkPass = await bcrypt.compare(req.body.password, passDB.password);
         // if false return with false
