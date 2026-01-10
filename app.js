@@ -41,5 +41,8 @@ app.use('/images/profile', profileRouter);
 app.use('/images/projectImages', express.static('./images/projectImages'));
 app.use('/images/profile', express.static('./images/profileImages'));
 app.use('/api/cv', express.static('./cv'));
+app.git('health', (req, res) => {
+    res.status(200).send({status: 'ok'});
+})
 
 module.exports = app
