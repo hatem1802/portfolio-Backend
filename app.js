@@ -23,8 +23,8 @@ app.use(cors({
 dotenv.config();
 
 mongoose.connect(process.env.MONGO_URL)
-    .then(console.log("Connected to database"))
-    .catch((err)=> {err.message});
+    .then(() => console.log("Connected to database"))
+    .catch((err) => console.error("Database connection error:", err.message));
 
 app.use(logger('dev'));
 app.use(express.json());

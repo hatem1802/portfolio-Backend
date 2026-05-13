@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Category = require('../models/CatsModel');
 
+
 router.post('/', async (req, res, next) => {
     try {
         const data = new Category({
