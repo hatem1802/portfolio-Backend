@@ -17,9 +17,7 @@ router.post('/', async (req, res) => {
 
 router.get('/', async (req, res) => {
     try {
-        const data = await Contact.findOne({
-            _id: "6910c934d3097bdebe0883e1"
-        })
+        const data = await Contact.findOne({})
         if (!data) return res.status(400).send("not found!");
         res.status(200).send(data);
     } catch (err) {
@@ -30,14 +28,12 @@ router.get('/', async (req, res) => {
     }
 })
 
-router.put('/:id', async (req, res) => {
+router.put('/', async (req, res) => {
     try {
-        const data = await Contact.findOneAndUpdate({
-            _id: req.params.id
-        }, req.body, {
+        const data = await Contact.findOneAndUpdate({}, req.body, {
             new: true
         });
-        if (!data) return res.status(400).send("not found!");
+        if (!data) return res.status(404).send("not found!");
         res.send(data);
     } catch (err) {
         for (let e in err.errors) {
